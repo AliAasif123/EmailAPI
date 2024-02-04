@@ -18,57 +18,6 @@ public class MailApiApplication {
 		mailSending();
 	}
 
-//	static void mailSending() {
-//		String username = "aasifali1088@gmail.com";
-//		String password = "ygpi urhx hfho vneu";
-//		String host = "smtp.gmail.com";
-//		int port = 587;
-//
-//		// Recipient email addresses
-//		String[] recipients = { "dineshsoma666@gmail.com" };
-//
-//		// Email properties
-//		Properties properties = new Properties();
-//		properties.put("mail.smtp.auth", "true");
-//		properties.put("mail.smtp.starttls.enable", "true");
-//		properties.put("mail.smtp.host", host);
-//		properties.put("mail.smtp.port", port);
-//
-//		// Create a session with authentication
-//		Session session = Session.getInstance(properties, new Authenticator() {
-//			protected PasswordAuthentication getPasswordAuthentication() {
-//				return new PasswordAuthentication(username, password);
-//			}
-//		});
-//
-//		try {
-//			// Create a MimeMessage object
-//			MimeMessage message = new MimeMessage(session);
-//
-//			// Set the sender's email address
-//			message.setFrom(new InternetAddress(username));
-//
-//			// Add recipients
-//			for (String recipient : recipients) {
-//				message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-//			}
-//
-//			// Set the subject and content of the email
-//			message.setSubject("Your Subject Here");
-//			message.setText("Your email content here.");
-//		
-//
-//			// Send the email
-//			Transport.send(message);
-//			
-//			
-//
-//			System.out.println("Email sent successfully.");
-//
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		}
-
 	static void mailSending() {
 		String username = "aasifali1088@gmail.com";
 		String password = "ygpi urhx hfho vneu";
@@ -76,7 +25,7 @@ public class MailApiApplication {
 		int port = 587;
 
 		// Recipient email addresses
-		String[] recipients = { "dineshsoma666@gmail.com","maheshsadhu5213@gmail.com" };
+		String[] recipients = { "dineshsoma666@gmail.com", "maheshsadhu5213@gmail.com" };
 
 		// Email properties
 		Properties properties = new Properties();
@@ -109,8 +58,10 @@ public class MailApiApplication {
 			multipart.addBodyPart(messageBodyPart);
 
 			messageBodyPart = new MimeBodyPart();
-			String attachmentFilePath = "C:\\Users\\aasif\\Downloads\\resumes\\aliaasif_resume.pdf"; // Replace with the actual path to your
-																				// resume file
+			String attachmentFilePath = "C:\\Users\\aasif\\Downloads\\resumes\\aliaasif_resume.pdf"; // Replace with the
+																										// actual path
+																										// to your
+			// resume file
 			DataSource source = new FileDataSource(attachmentFilePath);
 			messageBodyPart.setDataHandler(new DataHandler(source));
 			messageBodyPart.setFileName("aliaasif_resume.pdf");
@@ -120,7 +71,7 @@ public class MailApiApplication {
 
 			Transport.send(message);
 
-			System.out.println("Email sent successfully.");
+			System.out.println("Email sent successfully...");
 
 		} catch (MessagingException e) {
 			e.printStackTrace();
